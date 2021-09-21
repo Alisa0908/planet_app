@@ -9,7 +9,8 @@ class PlanetController extends Controller
 {
     public function index()
     {
-        
+        $planets = Planet::all();
+        return view('planets.index', compact('planets'));
     }
 
     public function show($id)
