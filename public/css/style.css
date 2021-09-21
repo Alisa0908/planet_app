@@ -7,3 +7,7 @@
 .register {
     display: block;
 }
+
+.error {
+    color: red;
+}
