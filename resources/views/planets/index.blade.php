@@ -25,7 +25,7 @@
             <td>{{ $planet->radius }}</td>
             <td>{{ $planet->weight }}</td>
             <td><a href="/planets/{{ $planet->id }}">詳細</a></td>
-            <td><a href="/planets/edit">編集</a></td>
+            <td><a href="/planets/{{ $planet->id }}/edit">編集</a></td>
             <td>
                 <form action="planets/{{ $planet->id }}" method="post">
                     @csrf

@@ -38,8 +38,31 @@ class PlanetController extends Controller
         return redirect('/planets');
     }
 
-    public function edit()
+    public function edit(Request $request, $id)
     {
-        
+        $planet = Planet::find($id);
+        return view('planets.edit',compact('planet'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $planet = Planet::find($id);
+
+        $planet->name = $request->name;
+        $planet->english = $request->english;
+        $planet->radius = $request->radius;
+        $planet->weight = $request->weight;
+
+        $planet->save();
+
+        return redirect('/planets');
+    }
+
+    public function destroy($id)
+    {
+        $planet = Planet::find($id);
+        $planet->delete();
+
+        return redirect('/planets');
     }
 }
