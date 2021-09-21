@@ -19,6 +19,25 @@ class PlanetController extends Controller
         return view('planets.show', compact('planet'));
     }
 
+    public function create()
+    {
+        return view('planets.create');
+    }
+
+    public function store(Request $request)  
+    {
+        $planet = new Planet;
+
+        $planet->name = $request->name;
+        $planet->english = $request->english;
+        $planet->radius = $request->radius;
+        $planet->weight = $request->weight;
+
+        $planet->save();
+
+        return redirect('/planets');
+    }
+
     public function edit()
     {
         
